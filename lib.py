@@ -12,11 +12,11 @@ def read_csv(path):
     return len(archivo),len(archivo[0]), archivo    #filas, columnas y csv
      #Vamos a retornar una tupla con el largo y ancho del csv
 
-def get_cols(archivo,num_cols):
+def get_cols(archivo):
     columnas=list()
-    for j in enumerate(archivo):
+    for j in range(len(archivo)):
         auxcol=list()
-        for i in enumerate(archivo[0]):
+        for i in range(len(archivo[0])):
             auxcol.append(archivo[i][j])
         columnas.append(auxcol)
         auxcol=None
@@ -24,7 +24,6 @@ def get_cols(archivo,num_cols):
 
     
 
-#Dimensiones de la matriz, no de los datos
 def matriz_co(columnas):
     matriz=list()
     for i in range(len(columnas)):
@@ -46,3 +45,11 @@ def covarianza(x:list,y:list):
         covxy+=((x[i]-xprom)(y[i]-yprom))/len(x)
     return covxy
     
+
+def print_matriz(matriz):
+    tam=len(matriz)
+    for renglon in matriz:
+        for col in renglon:
+            print(str(col)+" ")
+        print("\n")
+   
