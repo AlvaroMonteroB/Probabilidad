@@ -1,3 +1,2 @@
 import lib
-import csv
-import math
+import Parte1
