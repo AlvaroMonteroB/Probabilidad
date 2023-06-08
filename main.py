@@ -5,6 +5,6 @@ import lib
 
 path="datos.csv"
 filas,columnas,datos=lib.read_csv(path)
-columnas=lib.get_cols(datos)
-matriz=lib.matriz_co(columnas)
+listas=lib.get_cols(datos)
+matriz=lib.matriz_co(listas)
 lib.print_matriz(matriz)
