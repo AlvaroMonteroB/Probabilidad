@@ -30,7 +30,7 @@ def matriz_co(columnas):
     for i in range(len(columnas)):
         renglon=list()
         for j in range(len(columnas)):
-            renglon.append(covarianza(columnas[i], columnas[j]))
+            renglon.append(round(covarianza(columnas[i], columnas[j]),2))
         matriz.append(renglon)
     return matriz
 
