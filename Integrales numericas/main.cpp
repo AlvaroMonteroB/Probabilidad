@@ -23,8 +23,7 @@ float func2(float z){
 }
 
 float integral1(float a,float b, float sigma, float miu, float dx){
-    float sum=0;
-    float x=a;
+    float sum=0,x=a;
     while(x<=b){
         sum+=func1(sigma,miu,x)*dx;
         x+=dx;
@@ -63,8 +62,6 @@ void integral2(){
     write_vector(entradas);
 
 } 
-
-
 
 
 int main(){
