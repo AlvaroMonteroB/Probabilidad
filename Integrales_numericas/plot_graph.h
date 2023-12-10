@@ -21,7 +21,7 @@ void plot_graph(vector<float>dots){
       cout<<dots.size()<<'\n';
    }
    int vect_size=dots.size();
-   float step=vect_size/400;
+   float step=float(vect_size/400);
    float max=find_max(dots);
    cout<<"max "<<max<<'\n';
    float scale=200/max;

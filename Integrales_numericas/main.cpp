@@ -15,7 +15,7 @@ typedef struct{
 
 
 float func1(float sigma, float miu,float x){
-    return (pow(e,.5f*pow((x-miu)/sigma,2))
+    return (pow(e,-.5f*pow((x-miu)/sigma,2))
            /(sigma*pow(2*pi,.5f)));
 }
 
@@ -26,18 +26,14 @@ float func2(float z){
 float integral1(float a,float b, float sigma, float miu, float dx){
     float x0=a;
     vector<float>memory;
-    while(x0<=b){
         float sum=0;
-        float x=a;
-        while(x<=x0){
-            sum+=func1(sigma,miu,x)*dx;
-            x+=dx;
+        while(x0<=b){
+            sum+=func1(sigma,miu,x0)*dx;
+            memory.push_back(func2(x0));
+            x0+=dx;
         }
-        memory.push_back(sum);
-        x0+=.01f;
-    }
     plot_graph(memory);
-    return memory.front();
+    return sum;
 }
 
 void write_vector(vector<Result> resultado){
@@ -47,7 +43,7 @@ void write_vector(vector<Result> resultado){
         exit(2);
     }
     for(auto& pair:resultado){
-        f<<"X= "<<pair.b<<" F(x) = "<<pair.sum<<" ,";
+        f<<"X= "<<pair.b<<" F(x) = "<<pair.sum<<"\n";
     }
     f.close();
     cout<<resultado.size()<<" resultados escritos";
