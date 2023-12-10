@@ -2,6 +2,7 @@
 #include<iostream>
 #include<cmath>
 #include<fstream>
+#include<iomanip>
 
 #define e 2.718281828
 #define pi 3.141592654
@@ -14,7 +15,7 @@ typedef struct{
 
 
 float func1(float sigma, float miu,float x){
-    return (pow(e,.5f*pow((x-miu)/sigma,2))
+    return (pow(e,-.5f*pow((x-miu)/sigma,2.0f))
            /(sigma*pow(2*pi,.5f)));
 }
 
@@ -84,7 +85,7 @@ case '1':
     cin>>miu;
     float result;
     result= integral1(a,b,sigma,miu,dx);
-    cout<<"El area bajo la curva de tu funcion es: "<<result<<'\n';
+    cout<<"El area bajo la curva de tu funcion es: "<<fixed<<setprecision(8)<<result <<'\n';
 
     break;
 case '2':
